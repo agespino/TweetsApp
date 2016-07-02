@@ -50,19 +50,21 @@ public class TimelineActivity extends AppCompatActivity {
         Intent i = new Intent(this, ProfileActivity.class);
         i.putExtra("fromActionBar", 0);
         startActivity(i);
-
     }
 
     public void onCompose(MenuItem item) {
         Intent i = new Intent(this, ComposeActivity.class);
         startActivityForResult(i, REQUEST_CODE);
-
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // REQUEST_CODE is defined above
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             Tweet tweet = (Tweet)data.getSerializableExtra("tweet");
+            HomeTimelineFragment fragmentHomeTweets =
+                    (HomeTimelineFragment) adapterViewPager.getRegisteredFragment(0);
+            fragmentHomeTweets.appendTweet(tweet);
         }
     }
 

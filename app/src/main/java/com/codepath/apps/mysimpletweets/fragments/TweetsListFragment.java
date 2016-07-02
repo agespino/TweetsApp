@@ -24,9 +24,9 @@ import java.util.List;
  * Created by aespino on 6/29/16.
  */
 public class TweetsListFragment extends Fragment {
-    private ArrayList<Tweet> tweets;
-    private TweetsArrayAdapter aTweets;
-    private ListView lvTweets;
+    protected ArrayList<Tweet> tweets;
+    protected TweetsArrayAdapter aTweets;
+    protected ListView lvTweets;
     //inflation logic
     @Nullable
     @Override

@@ -13,7 +13,6 @@ import com.codepath.apps.mysimpletweets.R;
 import com.codepath.apps.mysimpletweets.TwitterApplication;
 import com.codepath.apps.mysimpletweets.TwitterClient;
 import com.codepath.apps.mysimpletweets.models.Tweet;
-import com.codepath.apps.mysimpletweets.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONObject;
@@ -44,10 +43,8 @@ public class ComposeActivity extends AppCompatActivity {
                     public void onSuccess(int statusCode, Header[] headers, JSONObject json) {
                         super.onSuccess(statusCode, headers, json);
                         Log.d("DEBUG", json.toString());
-                        User user = User.fromJsonObject(json);
+
                         Tweet tweet = Tweet.fromJson(json);
-                        tweet.setBody(tweetText);
-                        tweet.setUser(user);
                         //Picasso.with(v.getContext()).load(user.getProfileImageUrl()).into(ivProfileImage);
 
                         Intent data = new Intent();

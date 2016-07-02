@@ -51,5 +51,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
     public void appendTweet(Tweet tweet){
         //adapterViewPager.getRegisteredFragment(0);
         tweets.add(0, tweet);
+        aTweets.notifyDataSetChanged();
+                //.add(0, tweet);
     }
 }
